@@ -1,8 +1,4 @@
 import java.awt.*;
-import math.transform.jwave.*; //importamos librerias de JWave
-import math.transform.jwave.handlers.AncientEgyptianDecomposition;
-import math.transform.jwave.handlers.WaveletPacketTransform;
-import math.transform.jwave.handlers.wavelets.Haar02;
 
 /**
 *
@@ -174,7 +170,6 @@ public class GuiSenal extends javax.swing.JPanel{
 	}   
 
 	private void graficarSenal(Graphics g) {
-		wavelet(datosVoz);
 
 		double[] puntoP=new double[2]; /*punto proyectado*/      
 		double[] punto2D=new double[2]; /*punto en coordenadas del dispositivo*/   
@@ -207,25 +202,7 @@ public class GuiSenal extends javax.swing.JPanel{
 		graficarOnda = false;
 		graficarPeriodo = false;
 	}
-	
-	//Modifica el vector de datos para crear una grafica mas uniforme
-	private double[] wavelet(double[] datos){
-		
-		 Transform t = new Transform( 
-                 new AncientEgyptianDecomposition(
-                  new WaveletPacketTransform( 
-                   new Haar02( ) ) ) );
 
-		double[ ] arrTime = datos; // tama–o del array de datos
-
-		double[ ] arrHilb = t.forward( arrTime ); // 1-D AED WPT Haar forward
-
-		double[ ] datosR = t.reverse( arrHilb ); // 1-D AED WPT Haar reverse
-		
-		
-		return datosR;
-	}
-	
 	public void update(Graphics g) {
 
 		paint(g);

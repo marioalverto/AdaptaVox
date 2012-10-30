@@ -10,23 +10,23 @@ import java.util.*;
 
 public class AdaptaVox extends JFrame implements ActionListener {
 
-	private JButton menuAbrir, zoomIn, zoomOut, determinaSexo, reproducirSonido;
+	private JButton menuAbrir, zoomIn, zoomOut, fEX, fEY, fE, reproducirSonido;
 	private JPanel Grafico, Botones;
 	private JFileChooser fc;
 	private Reproducir audioR;
 
-	private double[] datosVoz = null; //vector de amplitud de la se–al
+	private double[] datosVoz = null; //vector de amplitud de la seÃ±al
 	private double fex = 0.01; //factor de escalamiento en las abscisas
 	private double fey = 0.01; //factor de escalamiento en las coorenadas
-	private int FrecuenciaDeSampleo; //frecuencia de muestras de la se–al 
-	private int finterv = 1; //factor de intervalo de muestreo de la se–al
+	private int FrecuenciaDeSampleo; //frecuencia de muestras de la seÃ±al 
+	private int finterv = 1; //factor de intervalo de muestreo de la seÃ±al
 	private String Informe; 
 	//private String NameAudio; //nombre del archivo de audio
 	private String rutaAudio; //ruta del archivo de audio
 	private GuiSenal panelSenal; 
 
 	private AdaptaVox(){
-		this.setSize(600,400);
+		this.setSize(500,400);
 		this.setTitle("AdaptaVox");
 		
 		menuAbrir = new JButton("Cargar Sonido");
@@ -40,9 +40,6 @@ public class AdaptaVox extends JFrame implements ActionListener {
 
 		reproducirSonido = new JButton("> Play");
 		reproducirSonido.addActionListener(this);
-		
-		determinaSexo = new JButton("Determinar Sexo");
-		determinaSexo.addActionListener(this);
 
 		panelSenal = new GuiSenal();
 		panelSenal.setAncho(500);
@@ -55,7 +52,6 @@ public class AdaptaVox extends JFrame implements ActionListener {
 		Botones.add(zoomIn);
 		Botones.add(zoomOut);
 		Botones.add(reproducirSonido);
-		Botones.add(determinaSexo);
 		Botones.setBorder(BorderFactory.createLineBorder(Color.RED));
 		
 
